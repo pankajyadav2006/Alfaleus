@@ -13,11 +13,14 @@ from contextlib import asynccontextmanager
 from database import init_db, get_db, Opportunity
 from scheduler import start_scheduler, run_scrape_task
 from scraper import OpportunityScraper
+from seed import seed_data
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
     init_db()
+    # Automatically seed data if empty (for Free Tier users)
+    seed_data()
     scheduler = start_scheduler()
     yield
     # Shutdown
