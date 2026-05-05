@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+httpx
+beautifulsoup4
+feedparser
+apscheduler
+anthropic
+python-multipart
+aiofiles
